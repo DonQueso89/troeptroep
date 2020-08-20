@@ -1,0 +1,10 @@
+html, body {
+    background-color: black;
+    color: white;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white
+}
