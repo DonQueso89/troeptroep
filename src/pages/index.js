@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Container>
       <Link activeStyle={{ color: "white" }} to="/manifest/" >Manifest</Link>
-      <img style={{ maxWidth: "100%", maxHeight: "100%" }} src={MainLogo} alt="" />
+      <img style={{ maxWidth: "100%", maxHeight: "100vh" }} src={MainLogo} alt="" />
     </Container>
   )
 }
