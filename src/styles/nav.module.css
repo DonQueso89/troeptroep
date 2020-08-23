@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  font-size: large;
+  width: 100%;
+}
+.nav-item {
+    padding: 10px;
+}
