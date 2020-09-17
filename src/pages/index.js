@@ -1,13 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import Container from "../components/container"
-import MainLogo from "../../static/TroepTroep.jpg"
-import Before from "../../static/before.jpeg"
-import After from "../../static/after.jpeg"
-import Logo from "../../static/logo.jpg"
-import navStyles from "../styles/nav.module.css"
+import MainLogo from "../assets/TroepTroep.jpg"
+import Before from "../assets/before.jpeg"
+import After from "../assets/after.jpeg"
 import galleryStyles from "../styles/gallery.module.css"
-import { FaInstagram } from 'react-icons/fa';
 
 const GalleryItem = ({ beforeImgSrc, afterImgSrc, text }) => {
   return <div className={galleryStyles.galleryItem}>
@@ -37,10 +33,6 @@ const GalleryItem = ({ beforeImgSrc, afterImgSrc, text }) => {
 export default function Home() {
   return (
     <Container>
-      <div className={navStyles.nav}>
-        <Link className={navStyles.navItem} activeStyle={{ color: "white" }} to="/manifest/" >Manifest</Link>
-        <a className={navStyles.navItem} target="_blank" rel="noreferrer" href="https://www.instagram.com/troeptroep666/?igshid=1epjn1xua18g6"><FaInstagram /></a>
-      </div>
       <img style={{ maxWidth: "100%", maxHeight: "100vh" }} src={MainLogo} alt="" />
       <div className={galleryStyles.outerContainer}>
         <hr style={{ width: "100%" }} />

@@ -1,10 +1,19 @@
 .nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-direction: row;
   font-size: large;
   width: 100%;
 }
 .nav-item {
     padding: 10px;
+}
+.nav-logo {
+  width: 50px;
+  height: auto;
+  background-color: #4b4b4b;
+}
+.nav-home-link {
+  margin-left: auto;
+  margin-right: 21px;
 }
