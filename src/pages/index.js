@@ -33,7 +33,7 @@ const GalleryItem = ({ beforeImgSrc, afterImgSrc, text }) => {
 export default function Home() {
   return (
     <Container>
-      <img style={{ maxWidth: "100%", maxHeight: "100vh" }} src={MainLogo} alt="" />
+      <img style={{ maxWidth: "auto", maxHeight: "100vh" }} src={MainLogo} alt="" />
       <div className={galleryStyles.outerContainer}>
         <hr style={{ width: "100%" }} />
         <GalleryItem beforeImgSrc={Before} afterImgSrc={After} text={"Hello world"} />

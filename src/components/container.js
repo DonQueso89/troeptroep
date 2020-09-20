@@ -9,14 +9,20 @@ const TinyLogo = () => {
     return <Link className={navStyles.navHomeLink} to="/"><img className={navStyles.navLogo} src={Logo} atl="tinylogo" /></Link>
 }
 
-const Container = ({ children }) => {
-    return <div className={containerStyles.container}>
+const NavBar = () => {
+    return (
         <div className={navStyles.nav}>
             <Link className={navStyles.navItem} activeStyle={{ color: "white" }} to="/manifest/" >Manifest</Link>
             <Link className={navStyles.navItem} activeStyle={{ color: "white" }} to="/action/" >Action</Link>
-            <a className={navStyles.navItem} target="_blank" rel="noreferrer" href="https://www.instagram.com/troeptroep666/?igshid=1epjn1xua18g6"><FaInstagram /></a>
+            <a className={navStyles.navItem} target="_blank" rel="noreferrer" href="https://www.instagram.com/troeptroep666/?igshid=1epjn1xua18g6">#CTFO<FaInstagram /></a>
             <TinyLogo />
         </div>
+    )
+}
+
+const Container = ({ children }) => {
+    return <div className={containerStyles.container}>
+        <NavBar />
         {children}
     </div>
 }

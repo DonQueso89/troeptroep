@@ -11,6 +11,10 @@ const EventItem = ({ title, date, place }) => <div className={actionStyles.Event
 export default function Action() {
     return (
         <Container>
+            <p style={{ fontStyle: "italic" }} >Upcoming</p>
+            <hr style={{ width: "100%" }} />
+            <p style={{ fontStyle: "italic" }} >Done</p>
+            <hr style={{ width: "100%" }} />
             <EventItem title={"the Purging"} date={"18, 19 and 20 Sept. 2020"} place={"Amsterdam"} />
         </Container>
     )
