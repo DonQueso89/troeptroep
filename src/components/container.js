@@ -3,7 +3,7 @@ import containerStyles from "./container.module.css"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import navStyles from "../styles/nav.module.css"
 import { FaInstagram } from 'react-icons/fa';
-import Logo from "../assets/TroepTroep.jpg"
+import Logo from "../assets/logo.jpg"
 import Helmet from 'react-helmet'
 
 const TinyLogo = () => {

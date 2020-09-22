@@ -11,6 +11,7 @@
   width: 50px;
   height: auto;
   background-color: #4b4b4b;
+  border-radius: 10px;
 }
 .nav-home-link {
   margin-left: auto;
