@@ -15,7 +15,7 @@ export default function Home({ data }) {
         <video autoPlay muted className={galleryStyles.headerVideo} onEnded={(e) => { e.target.style.opacity = 0; }}>
           <source src={HeaderVideo} type="video/mp4" />
         </video>
-        <img style={{ maxWidth: "100%", maxHeight: "90vh", transform: "scale(1.5, 1)" }} src={MainLogo} alt="" />
+        <img style={{ maxWidth: "100%", maxHeight: "90vh", transform: "scale(1.5, 1.3)" }} src={MainLogo} alt="" />
       </div>
     </Container>
   )
