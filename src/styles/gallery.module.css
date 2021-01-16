@@ -1,3 +1,23 @@
+.main-logo-container {
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header-video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    border-radius: 5px;
+    width: 100vw;
+    height: auto;
+    transition: opacity 2s;
+    opacity: 90;
+}
+
 .outer-container {
     display: flex;
     flex-direction: row;

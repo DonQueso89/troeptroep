@@ -3,15 +3,21 @@
   justify-content: flex-start;
   flex-direction: row;
   width: 100%;
+  padding: 0 10px 0 10px;
 }
 .nav-item {
-    padding: 10px;
+    font-size: 20px;
+    padding: 0px 10px 0px 10px;
 }
 .nav-logo {
   width: 50px;
-  height: auto;
+  height: 50px;
   background-color: #4b4b4b;
   border-radius: 10px;
+}
+
+img .nav-logo {
+  margin-bottom: 0px;
 }
 .nav-home-link {
   margin-left: auto;

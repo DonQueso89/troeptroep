@@ -4,36 +4,18 @@ import Container from "../components/container"
 import MainLogo from "../assets/TroepTroep.jpg"
 import galleryStyles from "../styles/gallery.module.css"
 import Img from "gatsby-image"
+import { FaBalanceScale } from "react-icons/fa"
+import HeaderVideo from "../assets/headervid.mp4"
 
-
-const SingleImageThumbnail = ({ node }) => {
-  return <div className={galleryStyles.galleryImage}>
-    <Img fixed={node.frontmatter.image.childImageSharp.fixed} alt="" />
-    <div className={galleryStyles.thumbnailOverlay}>{node.frontmatter.date} | {node.frontmatter.latlong}</div>
-  </div>
-}
-
-const BeforeAfterThumbnail = ({ node }) => {
-  return <div className={galleryStyles.galleryImage}>
-    <Img fixed={node.frontmatter.before_image.childImageSharp.fixed} alt="" />
-    <div className={galleryStyles.thumbnailOverlay}>{node.frontmatter.date} | {node.frontmatter.latlong}</div>
-  </div>
-}
 
 export default function Home({ data }) {
-  const thumbnails = data.allMarkdownRemark.edges.map(({ node }) => { 
-    if (node.frontmatter.entry_type === "before_after") { 
-      return <BeforeAfterThumbnail node={node} /> 
-    } else { 
-      return <SingleImageThumbnail node={node} />
-    }
-  })
   return (
     <Container>
-      <img style={{ maxWidth: "auto", maxHeight: "100vh" }} src={MainLogo} alt="" />
-      <div className={galleryStyles.outerContainer}>
-        <hr style={{ width: "100%", backgroundColor: "white" }} />
-        {thumbnails}
+      <div className={galleryStyles.mainLogoContainer}>
+        <video autoPlay muted className={galleryStyles.headerVideo} onEnded={(e) => { e.target.style.opacity = 0; }}>
+          <source src={HeaderVideo} type="video/mp4" />
+        </video>
+        <img style={{ maxWidth: "100%", maxHeight: "90vh", transform: "scale(1.5, 1)" }} src={MainLogo} alt="" />
       </div>
     </Container>
   )

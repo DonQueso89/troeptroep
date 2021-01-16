@@ -1,15 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 .container {
   margin: 3rem auto;
   max-width: 100%;
-  max-height: 100%;
-  color: white;
+  max-height: auto;
+  color: whitesmoke;
   background-color: black;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Special Elite', cursive;
 }
 
 p {
   max-width: "50%";
   text-align: left;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
 }

@@ -1,11 +1,12 @@
 html, body {
     background-color: black;
-    color: white;
     width: 100%;
-    height: auto;
+    color: whitesmoke;
+    height: 100vh;
+    scroll-behavior: unset;
 }
 
 a {
     text-decoration: none;
-    color: white
+    color: whitesmoke;
 }
