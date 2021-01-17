@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import Container from "../components/container"
 import MainLogo from "../assets/TroepTroep.jpg"
@@ -7,10 +7,8 @@ import Img from "gatsby-image"
 import { FaBalanceScale } from "react-icons/fa"
 import HeaderVideo from "../assets/headervid.mp4"
 
-const usePlayed = () =>{
-  const played = window.played
-  window.played = played || true
-  return played
+const usePlayed = () => {
+  return typeof window !== 'undefined' && window.played
 }
 
 export default function Home({ data }) {
@@ -19,6 +17,10 @@ export default function Home({ data }) {
     document.getElementById("main-logo-img").style.opacity = 1;
   }
   const played = usePlayed()
+
+  useEffect(() => {
+    window.played = true
+  }, []);
 
   return (
     <Container>
