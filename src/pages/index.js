@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Container from "../components/container"
 import MainLogo from "../assets/TroepTroep.jpg"
@@ -7,15 +7,28 @@ import Img from "gatsby-image"
 import { FaBalanceScale } from "react-icons/fa"
 import HeaderVideo from "../assets/headervid.mp4"
 
+const usePlayed = () =>{
+  const played = window.played
+  window.played = played || true
+  return played
+}
 
 export default function Home({ data }) {
+  const onEndHeaderVideo = (e) => {
+    e.target.style.opacity = 0;
+    document.getElementById("main-logo-img").style.opacity = 1;
+  }
+  const played = usePlayed()
+
   return (
     <Container>
       <div className={galleryStyles.mainLogoContainer}>
-        <video autoPlay muted className={galleryStyles.headerVideo} onEnded={(e) => { e.target.style.opacity = 0; }}>
+        { !played &&
+        <video autoPlay muted className={galleryStyles.headerVideo} onEnded={onEndHeaderVideo}>
           <source src={HeaderVideo} type="video/mp4" />
         </video>
-        <img style={{ maxWidth: "100%", maxHeight: "90vh", transform: "scale(1.5, 1.3)" }} src={MainLogo} alt="" />
+        }
+        <img className={galleryStyles.mainLogo} src={MainLogo} alt="" id="main-logo-img" data-video-ended={played} />
       </div>
     </Container>
   )

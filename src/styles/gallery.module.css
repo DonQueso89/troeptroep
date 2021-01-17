@@ -1,16 +1,27 @@
 .main-logo-container {
     width: 100%;
-    max-height: 90vh;
+    max-height: 80vh;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.main-logo {
+    max-width: 100%;
+    max-height: 90vh;
+    transform: scale(1, 1);
+    opacity: .1;
+    transition: opacity 2s;
+}
+
+img[data-video-ended=true] {
+    opacity: 1;
 }
 
 .header-video {
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 100;
     border-radius: 5px;
     width: 100vw;
     height: auto;

@@ -3,7 +3,6 @@ html, body {
     width: 100%;
     color: whitesmoke;
     height: 100vh;
-    scroll-behavior: unset;
 }
 
 a {
