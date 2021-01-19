@@ -1,8 +1,5 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+require("dotenv").config()
+
 
 module.exports = {
   siteMetadata: {
@@ -13,12 +10,6 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/typography`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
