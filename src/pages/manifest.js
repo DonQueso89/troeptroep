@@ -7,7 +7,6 @@ export default function Manifest() {
     return (
         <Container>
             <div className={manifestStyles.textContainer}>
-            <p>Our bodies can not adapt fast enough to keep up with the speed at which our collective intelligence produces material artifacts that make our life 'easier'.</p>
             <p>UltraCapitalism is eating our humanity. Sit down, breathe slow. Meditate on how UltraCapitalism has shapen your fake identity.</p>
             <p>The challenge of our time is to prompt collective metanoia. Embrace your fellow humans. They are you.</p>
             <p>Embrace past humans. They are you.</p>
