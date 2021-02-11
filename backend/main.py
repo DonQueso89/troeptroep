@@ -20,6 +20,9 @@ ALLOWED_ORIGINS = [
     "https://troeptroep.nl",
 ]
 
+if os.getenv("DEBUG"):
+    ALLOWED_ORIGINS.append("http://localhost:8000")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
