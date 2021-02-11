@@ -1,0 +1,65 @@
+.main-logo-container {
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.main-logo {
+    max-width: 100%;
+    max-height: 90vh;
+    transform: scale(1, 1);
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+img[data-video-ended=true] {
+    opacity: 1;
+}
+
+.header-video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 5px;
+    width: 100vw;
+    height: auto;
+    transition: opacity 2s;
+    opacity: 100;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: auto;
+}
+.gallery-image-container {
+    width: 48%;
+}
+.gallery-image {
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.gallery-item-text {
+   display: flex;
+   width: 97%;
+   flex-direction: column;
+}
+.thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    background-color: darkslategray;
+    min-width: 250px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.thumbnail-overlay:hover {
+    opacity: .8;
+}

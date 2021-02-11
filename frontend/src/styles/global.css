@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+
+html, body {
+    background-color: black;
+    width: 100%;
+    color: whitesmoke;
+    height: 100vh;
+    font-family: 'Special Elite', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+h1 h2 h3 h4 h5 h6 {
+  font-family: 'Special Elite', cursive;
+}

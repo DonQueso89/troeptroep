@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "troeptroep"
+version = "0.1.0"
+description = ""
+authors = ["DonQueso89 <kg.v.ekeren@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fastapi = "^0.63.0"
+deta = "^0.7"
+python-dotenv = "^0.15.0"
+python-multipart = "^0.0.5"
+pydantic = {version = "^1.7.3", extras = ["email"]}
+
+[tool.poetry.dev-dependencies]
+uvicorn = "^0.13.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
