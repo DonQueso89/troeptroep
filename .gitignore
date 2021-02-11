@@ -136,3 +136,4 @@ node_modules
 data
 src/assets
 .deta-credentials
+.deta
