@@ -57,3 +57,8 @@ def create_registration(registration: Registation, x_token: str = Header(None)):
         content=str({"server": os.getenv("DETA_API_TOKEN"), "client": x_token}),
         status_code=401,
     )
+
+# TODO
+@app.get("/subscribe/{hashed_email}", status_code=201)
+def create_subscription(hashed_email: str):
+    return "Thanks for subscribing to the TroepTroep event mailing list :D"
