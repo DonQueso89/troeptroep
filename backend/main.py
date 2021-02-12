@@ -7,6 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from deta import Deta
 from pydantic import EmailStr, BaseModel
+from mailer import send_mail
+
 
 load_dotenv()
 
@@ -48,5 +50,10 @@ def create_registration(registration: Registation, x_token: str = Header(None)):
                 "created_at": str(datetime.datetime.now()),
             }
         )
-        return 
-    return Response(content=str({'server': os.getenv("DETA_API_TOKEN"), 'client': x_token}), status_code=401)
+        send_mail(registration)
+
+        return
+    return Response(
+        content=str({"server": os.getenv("DETA_API_TOKEN"), "client": x_token}),
+        status_code=401,
+    )
