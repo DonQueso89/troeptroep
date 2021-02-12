@@ -3,7 +3,7 @@ import containerStyles from "./container.module.css"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import navStyles from "../styles/nav.module.css"
 import { FaInstagram } from 'react-icons/fa';
-import Logo from "../assets/logo.jpg"
+import Logo from "../assets/TroepTroep.jpg"
 import Helmet from 'react-helmet'
 import Footer from "./footer"
 
@@ -14,7 +14,7 @@ const TinyLogo = () => {
 const NavBar = () => {
     return (
         <div className={navStyles.nav}>
-            <Link className={navStyles.navItem} activeStyle={{ color: "white" }} to="/action/" >Action</Link>
+            <Link className={navStyles.navItem} activeStyle={{ color: "white" }} to="/action/" >Calendar</Link>
             <a className={navStyles.navItem} target="_blank" rel="noreferrer" href="https://www.instagram.com/troeptroep666/?igshid=1epjn1xua18g6">#<FaInstagram /></a>
             <TinyLogo />
         </div>
