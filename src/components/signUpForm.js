@@ -2,6 +2,25 @@ import React, { useState } from "react";
 import actionStyles from "../styles/action.module.css";
 import { FaQuestionCircle } from "react-icons/fa";
 
+function timeout(ms, promise) {
+  return new Promise((resolve, reject) => {
+    const timerId = setTimeout(
+      () => reject(new Error(`request timed out after ${ms}ms`)),
+      ms
+    );
+
+    promise
+      .then((v) => {
+        clearTimeout(timerId);
+        resolve(v);
+      })
+      .catch((reason) => {
+        clearTimeout(timerId);
+        reject(reason);
+      });
+  });
+}
+
 const SignUpForm = ({ event, toggleLoading, closeModal }) => {
   const [email, setEmail] = useState("");
   const [needsGear, setNeedsGear] = useState(false);
@@ -13,33 +32,40 @@ const SignUpForm = ({ event, toggleLoading, closeModal }) => {
     e.preventDefault();
     closeModal();
     toggleLoading();
-  
-    const data = Object.fromEntries(new FormData(form))
+
+    const data = Object.fromEntries(new FormData(form));
 
     if (data.needs_gear === undefined) {
-      data.needs_gear = false
+      data.needs_gear = false;
     }
-    const response = await fetch(formUrl, {
-      method: "POST",
-      body: JSON.stringify(data),
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${process.env.GATSBY_DETA_API_KEY}`,
-        "X-Token": `${process.env.GATSBY_DETA_API_KEY}`,
-      },
-    });
 
-    if (!response.ok) {
-      alert("Something went wrong. Please try again.");
-    } else {
-      alert("Thanks for registering! You will receive an email from us soon.");
-    };
-    toggleLoading();
-
+    try {
+      const response = await timeout(
+        5000,
+        fetch(formUrl, {
+          method: "POST",
+          body: JSON.stringify(data),
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${process.env.GATSBY_DETA_API_KEY}`,
+            "X-Token": `${process.env.GATSBY_DETA_API_KEY}`,
+          },
+        })
+      );
+      if (!response.ok) {
+        alert("Something went wrong. Please try again.");
+      } else {
+        alert(
+          "Thanks for registering! You will receive an email from us soon."
+        );
+      }
+    } catch {
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      toggleLoading();
+    }
   };
-
-  console.log(needsGear)
 
   return (
     <form
