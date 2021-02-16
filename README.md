@@ -5,4 +5,4 @@
 
 
 #### Deploy
-- gatsby build && npx surge publish public
+- gatsby build
