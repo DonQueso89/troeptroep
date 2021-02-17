@@ -27,7 +27,7 @@ const SignUpForm = ({ event, toggleLoading, closeModal }) => {
   const formUrl = new URL("registrations", process.env.GATSBY_DETA_ROOT_URL);
   const eventName = event ? event.title : null;
   const startTime = event ? event.starttime :  null;
-  const locationDescription = event ? event.meetingPointDescription :  null;
+  const locationDescription = event ? event.meetingpointDescription :  null;
 
   const formSubmitter = async (e) => {
     const form = e.target;
