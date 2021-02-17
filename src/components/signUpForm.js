@@ -26,6 +26,8 @@ const SignUpForm = ({ event, toggleLoading, closeModal }) => {
   const [needsGear, setNeedsGear] = useState(false);
   const formUrl = new URL("registrations", process.env.GATSBY_DETA_ROOT_URL);
   const eventName = event ? event.title : null;
+  const startTime = event ? event.starttime :  null;
+  const locationDescription = event ? event.meetingPointDescription :  null;
 
   const formSubmitter = async (e) => {
     const form = e.target;
@@ -75,6 +77,8 @@ const SignUpForm = ({ event, toggleLoading, closeModal }) => {
       onSubmit={formSubmitter}
     >
       <input type="hidden" name="event_name" value={eventName} />
+      <input type="hidden" name="start_time" value={startTime} />
+      <input type="hidden" name="location_description" value={locationDescription} />
       <div className={actionStyles.signUpFormInput}>
         <label htmlFor="email">Email: </label>
         <input

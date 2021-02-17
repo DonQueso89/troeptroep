@@ -13,7 +13,7 @@ def send_mail(registration):
     message["Subject"] = "TroepTroep welcomes you"
     message["From"] = os.getenv("GMAIL_UNAME")
     message["To"] = registration.email
-    message["Bcc"] = "kg.v.ekeren@gmail.com,jacobusgdeswart@gmail.com"
+    message["CC"] = "troeptroepen@gmail.com"
 
     gear_payload = "You've asked us to bring some gear for you.<br> This means that we will bring a ring, grabber and gloves for you to borrow.<br>"
     if not registration.needs_gear:
@@ -46,7 +46,7 @@ def send_mail(registration):
                 <h3>Practical info</h3>
 
                 <ul>
-                    <li>We meet at flarpendarp at 666 o clock</li>
+                    <li>We meet at {registration.location_description} at {registration.start_time} o clock</li>
                     <li>{gear_payload} If this changes. Please let us know at least a day before.</li>
                 </ul>
                 

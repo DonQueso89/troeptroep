@@ -37,6 +37,8 @@ class Registation(BaseModel):
     event_name: str
     email: EmailStr
     needs_gear: bool
+    start_time: str
+    location_description: str
 
 
 @app.post("/registrations", status_code=201)
