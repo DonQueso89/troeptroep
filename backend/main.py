@@ -2,7 +2,7 @@ import os
 import datetime
 from typing import Optional
 
-from fastapi import FastAPI, Form, Header, Response
+from fastapi import FastAPI, Form, Header, Response, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from deta import Deta
@@ -42,7 +42,7 @@ class Registation(BaseModel):
 
 
 @app.post("/registrations", status_code=201)
-def create_registration(registration: Registation, x_token: str = Header(None)):
+def create_registration(registration: Registation, tasks: BackgroundTasks, x_token: str = Header(None)):
     if x_token == os.getenv("DETA_API_TOKEN"):
         db.put(
             {
@@ -52,7 +52,7 @@ def create_registration(registration: Registation, x_token: str = Header(None)):
                 "created_at": str(datetime.datetime.now()),
             }
         )
-        send_mail(registration)
+        tasks.add_task(send_mail, registration)
 
         return
     return Response(

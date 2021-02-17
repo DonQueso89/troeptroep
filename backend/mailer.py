@@ -1,3 +1,4 @@
+import hashlib
 import os
 import ssl
 import smtplib
@@ -6,7 +7,7 @@ from email.mime.multipart import MIMEMultipart
 from urllib.parse import urljoin
 
 WHATSAPP_JOIN_URL = os.getenv("WHATSAPP_JOIN_URL")
-SUBSCRIBE_URL = urljoin(os.getenv("DETA_ROOT_URL"), "subscribe/krebbels") # TODO
+SUBSCRIBE_URL = urljoin(os.getenv("DETA_ROOT_URL"), "subscribe/%s") # TODO
 
 def send_mail(registration):
     message = MIMEMultipart("alternative")
@@ -14,6 +15,9 @@ def send_mail(registration):
     message["From"] = os.getenv("GMAIL_UNAME")
     message["To"] = registration.email
     message["CC"] = "troeptroepen@gmail.com"
+
+    hashed_email = hashlib.md5(registration.email.encode()).hexdigest()
+    subscription_url = SUBSCRIBE_URL % hashed_email
 
     gear_payload = "You've asked us to bring some gear for you.<br> This means that we will bring a ring, grabber and gloves for you to borrow.<br>"
     if not registration.needs_gear:
@@ -32,7 +36,7 @@ def send_mail(registration):
                 WhatsApp: {WHATSAPP_JOIN_URL}
                 A read only group where we announce all our events
                 
-                Email: {SUBSCRIBE_URL}
+                Email: {subscription_url}
                 Get an email each time (and only when) we have a new event.
     """
 
@@ -57,7 +61,7 @@ def send_mail(registration):
                         A read only group where we announce all our events
                     </li>
                     <li>
-                        <a href="{SUBSCRIBE_URL}">Email</a> 
+                        <a href="{subscription_url}">Email</a> 
                         Get an email each time (and only when) we have a new event.
                     </li>
                 </ul>
