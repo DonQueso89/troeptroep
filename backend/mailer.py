@@ -50,7 +50,8 @@ def send_mail(registration):
                 <h3>Practical info</h3>
 
                 <ul>
-                    <li>We meet at {registration.location_description} at {registration.start_time} o clock</li>
+                    <li>Meeting point: <strong> {registration.location_description} </strong></li>
+                    <li>Meeting time: <strong> {registration.start_time} </strong></li>
                     <li>{gear_payload} If this changes. Please let us know at least a day before.</li>
                 </ul>
                 
