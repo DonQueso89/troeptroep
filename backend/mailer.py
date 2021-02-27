@@ -17,7 +17,7 @@ def send_registration_mail(registration, registration_key):
     message["To"] = registration.email
     message["Cc"] = "troeptroepen@gmail.com"
 
-    subscription_url = SUBSCRIBE_URL % registration_key
+    subscription_url = SUBSCRIBE_URL % base64.urlsafe_b64encode(registration.email.encode()).decode()
 
     gear_payload = "You've asked us to bring some gear for you.<br> This means that we will bring a ring, grabber and gloves for you to borrow.<br>"
     if not registration.needs_gear:

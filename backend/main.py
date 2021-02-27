@@ -61,9 +61,9 @@ def create_registration(registration: Registation, tasks: BackgroundTasks, x_tok
         status_code=401,
     )
 
-@app.get("/subscribe/{registration_key}", status_code=201)
-def create_subscription(registration_key: str):
-    reg = db.get(registration_key)
+@app.get("/subscribe/{email}", status_code=201)
+def create_subscription(b64_email: str):
+    email = base64.urlsafe_b64decode(email).decode()
     if reg is None:
         return Response(content="Please register first", status_code=402)
 
@@ -72,7 +72,7 @@ def create_subscription(registration_key: str):
             {
                 "created_at": str(datetime.datetime.now()),
             },
-            reg["email"]
+            email
         )
     except Exception:
         return Response(content="You are already subscribed to our mailing list", status_code=304)
