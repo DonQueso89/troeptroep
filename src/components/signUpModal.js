@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import actionStyles from "../styles/action.module.css";
-import { FaWindowClose } from "react-icons/fa";
 import SignUpForm from "./signUpForm";
 import LoadingModal from "../components/loadingModal";
+import Modal from "../components/Modal"
 
 const SignUpModal = ({ open, event, closeModal }) => {
   const [loading, setLoading] = useState(false);
@@ -10,12 +10,7 @@ const SignUpModal = ({ open, event, closeModal }) => {
 
   return (
     <>
-    <div className={actionStyles.modalContainer} data-open={open}>
-      <div className={actionStyles.signUpModal}>
-        <div className={actionStyles.modalCloseButton} onClick={closeModal}>
-          <FaWindowClose />
-        </div>
-        <div className={actionStyles.signUpModalInner}>
+      <Modal open={open} closeModal={closeModal}>
           <p className={actionStyles.signUpModalIntroText}>
             Great that you want to join us. We will fill you in on the details
             via email.
@@ -23,13 +18,7 @@ const SignUpModal = ({ open, event, closeModal }) => {
           <div className={actionStyles.signUpModalForm}>
             <SignUpForm event={event} toggleLoading={toggleLoading} closeModal={closeModal} />
           </div>
-        </div>
-      </div>
-      <div
-        className={actionStyles.signUpModalOverlay}
-        onClick={closeModal}
-      ></div>
-    </div>
+       </Modal>
     <LoadingModal open={loading} />
     </>
   );

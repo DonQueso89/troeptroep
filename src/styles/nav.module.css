@@ -1,3 +1,9 @@
+@keyframes register-link-attention {
+    from {text-shadow: 2px 2px blue;}
+    to {text-shadow: 2px 2px green;}
+}
+
+
 .nav {
   display: flex;
   justify-content: flex-start;
@@ -22,4 +28,23 @@ img .nav-logo {
 .nav-home-link {
   margin-left: auto;
   margin-right: 21px;
+}
+
+.subscribe-button {
+    font-size: 20px;
+    animation-name: register-link-attention;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    padding: 0px;
+    background-color: transparent;
+    color: whitesmoke;
+}
+
+.subscribe-button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  transform: scale(1.05);
 }

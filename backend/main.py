@@ -3,6 +3,8 @@ import typing
 import os
 import datetime
 from typing import Optional
+from email_validator import EmailSyntaxError
+from pydantic.errors import EmailError
 
 from fastapi import FastAPI, Form, Header, Response, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
@@ -62,10 +64,27 @@ def create_registration(registration: Registation, tasks: BackgroundTasks, x_tok
     )
 
 @app.get("/subscribe/{email}", status_code=201)
-def create_subscription(b64_email: str):
+def create_subscription(email: str):
     email = base64.urlsafe_b64decode(email).decode()
-    if reg is None:
-        return Response(content="Please register first", status_code=402)
+
+    try:
+        subscriptions.insert(
+            {
+                "created_at": str(datetime.datetime.now()),
+            },
+            email
+        )
+    except Exception:
+        return Response(content="You are already subscribed to our mailing list", status_code=304)
+    return Response(content="Thanks for subscribing to the TroepTroep event mailing list", status_code=200)
+
+
+@app.post("/subscribe/", status_code=201)
+def _create_subscription(email: str):
+    try:
+        EmailStr.validate(email)
+    except (EmailError, EmailSyntaxError):
+        return Response(content="Invalid email address", status_code=400)
 
     try:
         subscriptions.insert(

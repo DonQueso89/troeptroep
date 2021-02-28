@@ -25,3 +25,7 @@ p {
   font-size: 10px;
   z-index: 100;
 }
+
+.subscribe-button {
+  color: "yellow";
+}
