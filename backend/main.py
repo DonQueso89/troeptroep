@@ -79,8 +79,8 @@ def create_subscription(email: str):
     return Response(content="Thanks for subscribing to the TroepTroep event mailing list", status_code=200)
 
 
-@app.post("/subscribe/", status_code=201)
-def _create_subscription(email: str):
+@app.post("/subscribe", status_code=201)
+def _create_subscription(email: str = Form(...)):
     try:
         EmailStr.validate(email)
     except (EmailError, EmailSyntaxError):
