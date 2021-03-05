@@ -83,7 +83,7 @@ export default function Action({ data }) {
     <Container>
       <EventContainer>
         <h2>Upcoming</h2>
-        {upcoming.sort((a, b) => a > b ? 1 : a < b ? -1 : 0)}
+        {upcoming.sort((a, b) => a > b ? -1 : a < b ? 1 : 0)}
         <h2>Done</h2>
         {pastEvents}
       </EventContainer>
