@@ -21,7 +21,7 @@ const FutureEvent = ({ event, setActiveEvent }) => (
         {event.date} | {event.city}
       </p>
       <p>
-        Rendez-vous: {event.fmtStartTime} @ {event.meetingpointDescription}
+        Rendez-vous: {new Date(event.starttime).toTimeString().slice(0, 8)} @ {event.meetingpointDescription}
       </p>
     </div>
     <a className={actionStyles.registerLink} onClick={() => setActiveEvent(event)}>
@@ -55,7 +55,7 @@ const PastEvent = ({ event }) => (
         {event.date} | {event.city}
       </p>
       <p>
-        Rendez-vous: {event.fmtStartTime} @ {event.meetingpointDescription}
+        Rendez-vous: {new Date(event.starttime).toTimeString().slice(0, 8)} @ {event.meetingpointDescription}
       </p>
     </div>
   </div>
@@ -101,8 +101,6 @@ export const query = graphql`
           date
           endtime
           starttime
-          fmtEndTime: endtime(formatString: "HH:mm:ss")
-          fmtStartTime: starttime(formatString: "HH:mm:ss")
           meetingpointDescription
           city
           location {
