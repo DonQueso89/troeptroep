@@ -12,7 +12,7 @@ const SubscribeModal = ({ open, closeModal }) => {
         <p className={actionStyles.signUpModalIntroText}>
           Enter your email to receive notifications via email whenever we
           organize a new event. We will not use your email for any other
-          purpose.
+          purpose. 
         </p>
         <form
           action={formUrl}

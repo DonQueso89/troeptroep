@@ -73,7 +73,7 @@ export default function Action({ data }) {
   const now = new Date()
   
   data.allDatoCmsEvent.edges.map(({node}) => {
-    if (new Date(node.endtime) >= now) {
+    if (new Date(node.date) >= now) {
       upcoming.push(<FutureEvent event={node} setActiveEvent={setActiveEvent} />)
     } else {
       pastEvents.push(<PastEvent event={node} />)
@@ -83,7 +83,7 @@ export default function Action({ data }) {
     <Container>
       <EventContainer>
         <h2>Upcoming</h2>
-        {upcoming}
+        {upcoming.sort((a, b) => a > b ? -1 : a < b ? 1 : 0)}
         <h2>Done</h2>
         {pastEvents}
       </EventContainer>
