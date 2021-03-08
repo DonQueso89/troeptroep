@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Container from "../components/container";
 import SignUpModal from "../components/signUpModal";
 import actionStyles from "../styles/action.module.css";
-import { HelmetDatoCms } from "gatsby-source-datocms";
+//import { HelmetDatoCms } from "gatsby-source-datocms";
 var pluscodes = require("open-location-code-typescript");
 
 const gMapsURI = (loc) => {
