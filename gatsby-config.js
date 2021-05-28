@@ -27,12 +27,6 @@ module.exports = {
         //},
       },
     },
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token: process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN
-      }
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
